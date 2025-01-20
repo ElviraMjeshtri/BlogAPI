@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "uJ7kmGavaGXSVgt9RP1nL8Wsl0WUeKRoL3hhktEUvMw=",
+  "Source": "BlogApi.Tests",
+  "BasePath": "_content/BlogApi.Tests",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "/Users/ritech/RiderProjects/BlogAPI/BlogApi/BlogApi.csproj",
+      "Version": 2,
+      "Source": "BlogApi",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,7 @@
+{
+  "BlogApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/RiderProjects\/BlogAPI\/BlogApi",
+  "BlogApi.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/RiderProjects\/BlogAPI\/BlogApi.DTOs",
+  "BlogApi.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/RiderProjects\/BlogAPI\/BlogApi.Models",
+  "BlogApi.Repository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/RiderProjects\/BlogAPI\/BlogApi.Repository",
+  "BlogApi.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/RiderProjects\/BlogAPI\/BlogApi.Services"
+}
