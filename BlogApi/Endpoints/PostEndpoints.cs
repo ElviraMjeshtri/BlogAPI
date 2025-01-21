@@ -1,13 +1,10 @@
 using BlogApi.DTOs;
 using BlogApi.Endpoints.Internal;
 using BlogApi.Models;
-using BlogApi.Repository;
-using BlogApi.Services;
 using BlogApi.Services.Commands.Posts;
 using BlogApi.Services.Queries.Posts;
 using FluentValidation;
 using FluentValidation.Results;
-using Hangfire;
 using MediatR;
 
 namespace BlogApi.Endpoints;
@@ -21,6 +18,7 @@ public class PostEndpoints : IEndpoints
     public static void DefineEndpoints(IEndpointRouteBuilder app)
     {
         app.MapPost("api/posts", HandleCreatePostAsync)
+            .RequireAuthorization("AdminOnly")
             .WithName("CreatePost")
             .Accepts<CreatePostDto>(ContentType)
             .Produces<Post>(201)
@@ -28,6 +26,7 @@ public class PostEndpoints : IEndpoints
             .WithTags(Tag);
 
         app.MapPut("/api/posts/{id:int}", HandleUpdatePostAsync)
+            .RequireAuthorization("AdminOnly")
             .WithName("UpdatePost")
             .Accepts<UpdatePostDto>(ContentType)
             .Produces<Post>(200)
@@ -50,7 +49,9 @@ public class PostEndpoints : IEndpoints
                 {
                     return Results.BadRequest(new { message = e.Message });
                 }
-            });
+            })
+            .RequireAuthorization("AdminOnly")
+            .WithTags(Tag);
 
         app.MapGet("/api/posts", 
             async (
@@ -62,9 +63,11 @@ public class PostEndpoints : IEndpoints
                 //var posts = await postService.GetPostsAsync(pageNumber, pageSize);
                 var posts = await mediator.Send(new GetPostsQuery(pageNumber, pageSize));
                 return Results.Ok(posts);
-            });
+            })
+            .RequireAuthorization("UserOnly")
+            .WithTags(Tag);
         
-        app.MapGet("/api/posts{id:int}", 
+        app.MapGet("/api/posts/{id:int}", 
             async (
                 //IPostService postService, 
                 IMediator mediator,
@@ -73,7 +76,9 @@ public class PostEndpoints : IEndpoints
                 //var post = await postService.GetPostAsync(id);
                 var post = await mediator.Send(new GetPostByIdQuery(id));
                 return Results.Ok(post);
-            });
+            }) 
+            .RequireAuthorization()
+            .WithTags(Tag);
         
         // app.MapPost("/api/posts/import", (PostImportJob job) =>
         //     {
@@ -101,9 +106,9 @@ public class PostEndpoints : IEndpoints
                     return Results.BadRequest(new { message = ex.Message });
                 }
             })
+            .RequireAuthorization("AdminOnly")
             .WithName("ImportPosts")
             .WithTags("Posts");
-
         
     }
     

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wGSb21ViBBk=",
+  "dgSpecHash": "6itYLSA9c0U=",
   "success": true,
-  "projectFilePath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj",
+  "projectFilePath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj",
   "expectedPackageFiles": [
     "/Users/ritech/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/ritech/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",

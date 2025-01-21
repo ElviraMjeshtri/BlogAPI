@@ -10,9 +10,20 @@ public class BlogDbContext : DbContext
     }
 
     public DbSet<Post> Posts { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<BlacklistedToken> TokenBlacklist { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<BlacklistedToken>()
+            .HasKey(t => t.Token); // Configure Token as the primary key
+        
+        //Configure User entity
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Username)
+            .IsUnique();
+        
         // Configure Post entity
         modelBuilder.Entity<Post>(entity =>
         {

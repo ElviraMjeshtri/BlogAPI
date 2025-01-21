@@ -23,3 +23,16 @@
 /Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/refint/BlogApi.DTOs.dll
 /Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.pdb
 /Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/ref/BlogApi.DTOs.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/bin/Debug/net8.0/BlogApi.DTOs.deps.json
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/bin/Debug/net8.0/BlogApi.DTOs.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/bin/Debug/net8.0/BlogApi.DTOs.pdb
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.csproj.AssemblyReference.cache
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.AssemblyInfoInputs.cache
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.AssemblyInfo.cs
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.csproj.CoreCompileInputs.cache
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.sourcelink.json
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/refint/BlogApi.DTOs.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.pdb
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/ref/BlogApi.DTOs.dll

@@ -152,11 +152,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
+      "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
       "projectName": "BlogApi.Models",
-      "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
+      "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
       "packagesPath": "/Users/ritech/.nuget/packages/",
-      "outputPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/obj/",
+      "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ritech/.nuget/NuGet/NuGet.Config"

@@ -23,3 +23,16 @@
 /Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/obj/Debug/net8.0/refint/BlogApi.Models.dll
 /Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.pdb
 /Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/obj/Debug/net8.0/ref/BlogApi.Models.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/bin/Debug/net8.0/BlogApi.Models.deps.json
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/bin/Debug/net8.0/BlogApi.Models.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/bin/Debug/net8.0/BlogApi.Models.pdb
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.csproj.AssemblyReference.cache
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.AssemblyInfoInputs.cache
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.AssemblyInfo.cs
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.csproj.CoreCompileInputs.cache
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.sourcelink.json
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/refint/BlogApi.Models.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/BlogApi.Models.pdb
+/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/Debug/net8.0/ref/BlogApi.Models.dll

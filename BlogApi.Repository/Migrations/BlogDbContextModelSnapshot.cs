@@ -22,6 +22,19 @@ namespace BlogApi.Repository.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("BlogApi.Models.BlacklistedToken", b =>
+                {
+                    b.Property<string>("Token")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("BlacklistedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Token");
+
+                    b.ToTable("TokenBlacklist");
+                });
+
             modelBuilder.Entity("BlogApi.Models.Post", b =>
                 {
                     b.Property<int>("Id")
@@ -57,6 +70,34 @@ namespace BlogApi.Repository.Migrations
                         .IsUnique();
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("BlogApi.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Username")
+                        .IsUnique();
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

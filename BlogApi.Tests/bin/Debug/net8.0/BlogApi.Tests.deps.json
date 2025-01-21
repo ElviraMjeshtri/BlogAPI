@@ -2345,11 +2345,15 @@
       },
       "BlogApi.Services/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "BlogApi.DTOs": "1.0.0",
           "BlogApi.Repository": "1.0.0",
           "CsvHelper": "33.0.1",
           "FluentValidation.AspNetCore": "11.3.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0"
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.3",
+          "Microsoft.IdentityModel.Tokens": "7.4.1",
+          "System.IdentityModel.Tokens.Jwt": "7.4.1"
         },
         "runtime": {
           "BlogApi.Services.dll": {

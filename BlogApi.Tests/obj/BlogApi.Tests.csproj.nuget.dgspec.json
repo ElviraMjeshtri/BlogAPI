@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj": {}
+    "/Users/ritech/Elvira/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj": {}
   },
   "projects": {
-    "/Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {
+    "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj",
+        "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj",
         "projectName": "BlogApi.DTOs",
-        "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj",
+        "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj",
         "packagesPath": "/Users/ritech/.nuget/packages/",
-        "outputPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/obj/",
+        "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ritech/.nuget/NuGet/NuGet.Config"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
+    "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
+        "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
         "projectName": "BlogApi.Models",
-        "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
+        "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
         "packagesPath": "/Users/ritech/.nuget/packages/",
-        "outputPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/obj/",
+        "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ritech/.nuget/NuGet/NuGet.Config"
@@ -134,14 +134,14 @@
         }
       }
     },
-    "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj": {
+    "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj",
+        "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj",
         "projectName": "BlogApi.Repository",
-        "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj",
+        "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj",
         "packagesPath": "/Users/ritech/.nuget/packages/",
-        "outputPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/obj/",
+        "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ritech/.nuget/NuGet/NuGet.Config"
@@ -156,8 +156,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj"
               }
             }
           }
@@ -223,14 +223,14 @@
         }
       }
     },
-    "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Services/BlogApi.Services.csproj": {
+    "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/BlogApi.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Services/BlogApi.Services.csproj",
+        "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/BlogApi.Services.csproj",
         "projectName": "BlogApi.Services",
-        "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Services/BlogApi.Services.csproj",
+        "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/BlogApi.Services.csproj",
         "packagesPath": "/Users/ritech/.nuget/packages/",
-        "outputPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Services/obj/",
+        "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ritech/.nuget/NuGet/NuGet.Config"
@@ -245,11 +245,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj"
               },
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj"
               }
             }
           }
@@ -270,6 +270,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "CsvHelper": {
               "target": "Package",
               "version": "[33.0.1, )"
@@ -281,6 +285,18 @@
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.1.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.4.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.4.1, )"
             }
           },
           "imports": [
@@ -303,14 +319,14 @@
         }
       }
     },
-    "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj": {
+    "/Users/ritech/Elvira/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj",
+        "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj",
         "projectName": "BlogApi.Tests",
-        "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj",
+        "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Tests/BlogApi.Tests.csproj",
         "packagesPath": "/Users/ritech/.nuget/packages/",
-        "outputPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Tests/obj/",
+        "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ritech/.nuget/NuGet/NuGet.Config"
@@ -325,17 +341,17 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj"
               },
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj"
               },
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Services/BlogApi.Services.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Services/BlogApi.Services.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/BlogApi.Services.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/BlogApi.Services.csproj"
               },
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi/BlogApi.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi/BlogApi.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi/BlogApi.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi/BlogApi.csproj"
               }
             }
           }
@@ -412,14 +428,14 @@
         }
       }
     },
-    "/Users/ritech/RiderProjects/BlogAPI/BlogApi/BlogApi.csproj": {
+    "/Users/ritech/Elvira/BlogAPI/BlogApi/BlogApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ritech/RiderProjects/BlogAPI/BlogApi/BlogApi.csproj",
+        "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi/BlogApi.csproj",
         "projectName": "BlogApi",
-        "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi/BlogApi.csproj",
+        "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi/BlogApi.csproj",
         "packagesPath": "/Users/ritech/.nuget/packages/",
-        "outputPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi/obj/",
+        "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ritech/.nuget/NuGet/NuGet.Config"
@@ -434,17 +450,17 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj"
               },
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj"
               },
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj"
               },
-              "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Services/BlogApi.Services.csproj": {
-                "projectPath": "/Users/ritech/RiderProjects/BlogAPI/BlogApi.Services/BlogApi.Services.csproj"
+              "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/BlogApi.Services.csproj": {
+                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/BlogApi.Services.csproj"
               }
             }
           }

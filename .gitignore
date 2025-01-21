@@ -1,0 +1,86 @@
+# Ignore build directories
+bin/
+obj/
+
+# Ignore Rider/JetBrains files
+.idea/
+*.DotSettings.user
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.temp
+*.cache
+*.bak
+*.old
+
+# Ignore compiled libraries
+*.dll
+*.pdb
+
+# Ignore NuGet cache
+*.nupkg
+packages/
+.nuget/
+
+# Ignore Rider and VS specific project-related files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore auto-generated files
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.genruntimeconfig.cache
+*.csproj.FileListAbsolute.txt
+*.csproj.AssemblyReference.cache
+
+# Ignore Entity Framework migrations designer files
+Migrations/*.Designer.cs
+
+# Ignore test result files
+TestResults/
+*.trx
+*.coverage
+
+# Ignore appsettings.json backups
+appsettings.Development.json
+appsettings.Staging.json
+
+# Ignore coverage tool output
+coverage/
+*.coverlet/
+
+# Ignore unnecessary IDE-specific or generated files
+*.iml
+*.swp
+*.swo
+*~
+*.pyc
+*.class
+*.DS_Store
+Thumbs.db
+
+# Exclude local configurations
+secrets.json
+.env
+
+# Ignore intermediate NuGet files
+*.nuget.dgspec.json
+*.nuget.cache
+
+# Ignore all compiled runtime and cache files
+Debug/
+Release/
+ref/
+refint/
+
+# Ignore EF migrations auto-generated intermediate files
+Migrations/*.Designer.cs
+
+# Allow tracked files in repository
+!BlogApi.DTOs/**
+!BlogApi.Models/**
+!BlogApi.Repository/**
+!BlogApi.Services/**
+!BlogApi.Tests/**

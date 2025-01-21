@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "uJ7kmGavaGXSVgt9RP1nL8Wsl0WUeKRoL3hhktEUvMw=",
+  "Hash": "9h5cUqGZeR8Vdg79yMI/327FtclR0mFzPgiYeXYFeBY=",
   "Source": "BlogApi.Tests",
   "BasePath": "_content/BlogApi.Tests",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "/Users/ritech/RiderProjects/BlogAPI/BlogApi/BlogApi.csproj",
+      "Identity": "/Users/ritech/Elvira/BlogAPI/BlogApi/BlogApi.csproj",
       "Version": 2,
       "Source": "BlogApi",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
