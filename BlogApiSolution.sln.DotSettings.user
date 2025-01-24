@@ -10,5 +10,12 @@
     &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.PostEndpointsTests&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.PostServiceTests&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.PostRepositoryTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.Commands.Posts.CreatePostCommandHandlerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.Commands.Posts.DeletePostCommandHandlerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.Commands.Posts.ImportPostsFromCsvCommandHandlerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::ImportPostsFromCsvCommandHandlerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.Services.Commands.Posts.ImportPostsFromCsvCommandHandlerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.Posts.GetPostsQueryHandlerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A4D5BF9B-78FB-4D02-8795-16C28D8C0D15::net8.0::BlogApi.Tests.Commands.Auth.LoginUserCommandHandlerTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -20,15 +20,12 @@ public class UpdatePostCommandHandler : IRequestHandler<UpdatePostCommand, PostD
         {
             throw new SystemException("The post does not exist.");
         }
-        //Update properties
         post.Title = request.updatePostDto.Title;
         post.Content = request.updatePostDto.Content;
         post.FriendlyUrl = request.updatePostDto.FriendlyUrl;
         
-        //Save to database
         var updatedPost = await _repository.UpdateAsync(post);
         
-        //Map to Dto and return
         return new PostDto
         {
             Id = updatedPost.Id,

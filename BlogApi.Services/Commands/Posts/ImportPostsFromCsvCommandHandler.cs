@@ -10,16 +10,17 @@ namespace BlogApi.Services.Commands.Posts;
 public class ImportPostsFromCsvCommandHandler : IRequestHandler<ImportPostsFromCsvCommand>
 {
     private readonly IPostRepository _postRepository;
+    private readonly HttpClient _httpClient;
 
-    public ImportPostsFromCsvCommandHandler(IPostRepository postRepository)
+    public ImportPostsFromCsvCommandHandler(IPostRepository postRepository, HttpClient httpClient)
     {
         _postRepository = postRepository;
+        _httpClient = httpClient;
     }
 
     public async Task<Unit> Handle(ImportPostsFromCsvCommand request, CancellationToken cancellationToken)
     {
-        using var httpClient = new HttpClient();
-        var csvStream = await httpClient.GetStreamAsync(request.CsvUrl);
+        var csvStream = await _httpClient.GetStreamAsync(request.CsvUrl);
 
         using var reader = new StreamReader(csvStream);
         using var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -32,10 +33,10 @@ public class ImportPostsFromCsvCommandHandler : IRequestHandler<ImportPostsFromC
 
         foreach (var post in posts)
         {
-            // Optionally add validation or mapping logic here
             await _postRepository.AddAsync(post);
         }
 
-        return Unit.Value; // Indicates the operation completed successfully
+        return Unit.Value;
     }
 }
+

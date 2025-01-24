@@ -2,25 +2,30 @@ using BlogApi.DTOs;
 using BlogApi.Models;
 using BlogApi.Repository;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace BlogApi.Services.Commands.Posts;
 
 public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, PostDto>
 {
     private readonly IPostRepository _repository;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public CreatePostCommandHandler(IPostRepository repository)
+    public CreatePostCommandHandler(IPostRepository repository, IHttpContextAccessor httpContextAccessor )
     {
         _repository = repository;
+        _httpContextAccessor = httpContextAccessor;
     }
     
     public async Task<PostDto> Handle(CreatePostCommand request, CancellationToken cancellationToken)
     {
+        var username = _httpContextAccessor.HttpContext?.User.Identity?.Name ?? "Unknown";
+
         //Check for duplicate FriendUrl
         var friendlyUrlExists = await _repository.FriendlyUrlExistsAsync(request.CreatePostDto.FriendlyUrl);
         if (friendlyUrlExists)
         {
-            throw new SystemException("The friendly url already exist.");
+            throw new SystemException("The friendly url already exists.");
         }
         
         var post = new Post
@@ -29,7 +34,7 @@ public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, PostD
             Content = request.CreatePostDto.Content,
             FriendlyUrl = request.CreatePostDto.FriendlyUrl,
             DateCreated = DateTime.UtcNow,
-            CreatedBy = "Admin" // Replace with dynamic user info if available
+            CreatedBy = username
         };
 
         var createdPost = await _repository.AddAsync(post);

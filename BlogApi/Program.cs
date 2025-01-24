@@ -72,11 +72,11 @@ builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ITokenBlacklistRepository, DatabaseTokenBlacklistRepository>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<PostImportJob>();
-builder.Services.AddScoped<AuthService>();
-
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 // Add services to the container
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSwaggerGen(options =>

@@ -9,7 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BlogApi.Services;
 
-public class AuthService
+public class AuthService : IAuthService
 {
     private readonly IConfiguration _configuration;
 
@@ -17,12 +17,7 @@ public class AuthService
     {
         _configuration = configuration;
     }
-
-    public string HashPassword(string password)
-    {
-        return BCrypt.Net.BCrypt.HashPassword(password);
-    }
-
+    
     public bool VerifyPassword(string password, string passwordHash)
     {
         return BCrypt.Net.BCrypt.Verify(password, passwordHash);

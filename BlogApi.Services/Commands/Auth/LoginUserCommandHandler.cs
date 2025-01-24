@@ -7,9 +7,9 @@ namespace BlogApi.Services.Commands.Auth;
 public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, AuthResponseDto>
 {
     private readonly IUserRepository _userRepository;
-    private readonly AuthService _authService;
+    private readonly IAuthService _authService;
 
-    public LoginUserCommandHandler(IUserRepository userRepository, AuthService authService)
+    public LoginUserCommandHandler(IUserRepository userRepository, IAuthService authService)
     {
         _userRepository = userRepository;
         _authService = authService;
