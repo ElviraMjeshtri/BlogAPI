@@ -14,7 +14,7 @@ public class PostEndpoints : IEndpoints
     private const string ContentType = "application/json";
     private const string Tag = "Posts";
     private const string BaseRoute = "posts";
-    
+
     public static void DefineEndpoints(IEndpointRouteBuilder app)
     {
         app.MapPost("api/posts", HandleCreatePostAsync)
@@ -33,62 +33,19 @@ public class PostEndpoints : IEndpoints
             .Produces<IEnumerable<ValidationFailure>>(400)
             .WithTags(Tag);
 
-        app.MapDelete("/api/posts/{id:int}",
-            async (
-                IMediator mediator,
-                //IPostService postService, 
-                int id) =>
-            {
-                try
-                {
-                   // await postService.DeletePostAsync(id);
-                   await mediator.Send(new DeletePostCommand(id));
-                   return Results.NoContent();
-                }
-                catch (Exception e)
-                {
-                    return Results.BadRequest(new { message = e.Message });
-                }
-            })
+        app.MapDelete("/api/posts/{id:int}", HandleDeletePostAsync)
             .RequireAuthorization("AdminOnly")
             .WithTags(Tag);
 
-        app.MapGet("/api/posts", 
-            async (
-                //IPostService postService, 
-                IMediator mediator,
-                int pageNumber,
-                int pageSize) =>
-            {
-                //var posts = await postService.GetPostsAsync(pageNumber, pageSize);
-                var posts = await mediator.Send(new GetPostsQuery(pageNumber, pageSize));
-                return Results.Ok(posts);
-            })
+        app.MapGet("/api/posts", HandleGetPostsAsync)
             .RequireAuthorization("UserOnly")
             .WithTags(Tag);
-        
-        app.MapGet("/api/posts/{id:int}", 
-            async (
-                //IPostService postService, 
-                IMediator mediator,
-                int id) =>
-            {
-                //var post = await postService.GetPostAsync(id);
-                var post = await mediator.Send(new GetPostByIdQuery(id));
-                return Results.Ok(post);
-            }) 
+
+        app.MapGet("/api/posts/{id:int}", HandleGetByIdPostAsync)
             .RequireAuthorization()
             .WithTags(Tag);
-        
-        // app.MapPost("/api/posts/import", (PostImportJob job) =>
-        //     {
-        //         BackgroundJob.Enqueue(() => 
-        //             job.ImportPostsAsync("https://fleetcor-cvp.s3.eu-central-1.amazonaws.com/blog-posts.csv"));
-        //         return Results.Ok("Import job has been enqueued.");
-        //     })
-        //     .WithName("ImportPosts")
-        //     .WithTags("Posts");
-        
+
+
         app.MapPost("/api/posts/import", async (IMediator mediator, string csvUrl) =>
             {
                 if (string.IsNullOrWhiteSpace(csvUrl))
@@ -109,10 +66,8 @@ public class PostEndpoints : IEndpoints
             .RequireAuthorization("AdminOnly")
             .WithName("ImportPosts")
             .WithTags("Posts");
-        
+
     }
-    
-      
     private static async Task<IResult> HandleCreatePostAsync(
         //IPostService postService,
         IMediator mediator,
@@ -137,7 +92,6 @@ public class PostEndpoints : IEndpoints
     }
     
     private static async Task<IResult> HandleUpdatePostAsync(
-        //IPostService postService, 
         IMediator mediator,
         int id, 
         UpdatePostDto updatePostDto,
@@ -159,11 +113,41 @@ public class PostEndpoints : IEndpoints
             return Results.BadRequest(new { message = e.Message });
         }
     }
-    
+
+    private static async Task<IResult> HandleDeletePostAsync(
+        IMediator mediator,
+        int id)
+    {
+        try
+        {
+            // await postService.DeletePostAsync(id);
+            await mediator.Send(new DeletePostCommand(id));
+            return Results.NoContent();
+        }
+        catch (Exception e)
+        {
+            return Results.BadRequest(new { message = e.Message });
+        }
+    }
+
+    private static async Task<IResult> HandleGetPostsAsync(
+        IMediator mediator,
+        int pageNumber,
+        int pageSize)
+    {
+        var posts = await mediator.Send(new GetPostsQuery(pageNumber, pageSize));
+        return Results.Ok(posts);
+    }
+
+    private static async Task<IResult> HandleGetByIdPostAsync( IMediator mediator,
+        int id)
+    {
+        var post = await mediator.Send(new GetPostByIdQuery(id));
+        return Results.Ok(post);
+    }
+
     public static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddMediatR(typeof(Program)); // Register MediatR
-       // services.AddScoped<IPostService, PostService>();
-        //services.AddScoped<IPostRepository, PostRepository>();
+        services.AddMediatR(typeof(Program)); 
     }
 }

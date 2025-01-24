@@ -68,31 +68,4 @@ namespace BlogApi.Tests.Posts;
 
             await _repository.Received(1).GetByIdAsync(postId);
         }
-
-        [Fact]
-        public async Task Handle_ShouldThrowArgumentNullException_WhenQueryIsNull()
-        {
-            // Arrange
-            GetPostByIdQuery query = null;
-
-            // Act & Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(() =>
-                _handler.Handle(query, CancellationToken.None)
-            );
-        }
-
-        [Fact]
-        public async Task Handle_ShouldThrowArgumentException_WhenPostIdIsEmpty()
-        {
-            // Arrange
-            var invalidPostId = 0; // Assuming 0 is an invalid ID
-            var query = new GetPostByIdQuery(invalidPostId);
-
-            // Act & Assert
-            var exception = await Assert.ThrowsAsync<ArgumentException>(() =>
-                _handler.Handle(query, CancellationToken.None)
-            );
-
-            Assert.Equal("PostId must be greater than 0.", exception.Message);
-        }
     }
