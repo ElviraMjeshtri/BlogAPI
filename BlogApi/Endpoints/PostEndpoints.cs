@@ -38,7 +38,7 @@ public class PostEndpoints : IEndpoints
             .WithTags(Tag);
 
         app.MapGet("/api/posts", HandleGetPostsAsync)
-            .RequireAuthorization("UserOnly")
+            .RequireAuthorization()
             .WithTags(Tag);
 
         app.MapGet("/api/posts/{id:int}", HandleGetByIdPostAsync)

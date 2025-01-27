@@ -50,8 +50,6 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("UserOnly", policy => policy.RequireRole("user"));   // Matches "role": "user"
 });
 
-
-
 // Register MediatR
 builder.Services.AddMediatR(typeof(RegisterUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(LoginUserCommandHandler).Assembly);
@@ -107,8 +105,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-
-
 // Configure Entity Framework Core with PostgreSQL
 builder.Services.AddDbContext<BlogDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -119,6 +115,8 @@ builder.Services.AddHangfire(config =>
 });
 
 builder.Services.AddHangfireServer();
+builder.Services.AddHttpClient();
+
 // Register custom endpoints
 builder.Services.AddEndpoints<Program>(builder.Configuration);
 builder.Services.AddMediatR(typeof(Program));
@@ -137,13 +135,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// Apply migrations automatically
-// using (var scope = app.Services.CreateScope())
-// {
-//     var dbContext = scope.ServiceProvider.GetRequiredService<BlogDbContext>();
-//     dbContext.Database.Migrate();
-// }
 
 // Register endpoints from the separate class
 app.UseEndpoints<Program>();
