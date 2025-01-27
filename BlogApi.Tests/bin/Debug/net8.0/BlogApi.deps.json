@@ -1020,6 +1020,8 @@
       "System.Threading.Channels/7.0.0": {},
       "BlogApi.DTOs/1.0.0": {
         "dependencies": {
+          "BlogApi.Models": "1.0.0",
+          "CsvHelper": "33.0.1",
           "FluentValidation.AspNetCore": "11.3.0"
         },
         "runtime": {

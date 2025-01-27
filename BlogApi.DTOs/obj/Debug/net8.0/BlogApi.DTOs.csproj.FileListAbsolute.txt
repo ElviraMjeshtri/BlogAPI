@@ -36,3 +36,6 @@
 /Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/refint/BlogApi.DTOs.dll
 /Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi.DTOs.pdb
 /Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/ref/BlogApi.DTOs.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/bin/Debug/net8.0/BlogApi.Models.dll
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/bin/Debug/net8.0/BlogApi.Models.pdb
+/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/Debug/net8.0/BlogApi..A2DD894A.Up2Date
