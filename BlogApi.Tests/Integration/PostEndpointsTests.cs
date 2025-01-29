@@ -173,17 +173,9 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
     {
         // Arrange
         var csvUrl = "https://fleetcor-cvp.s3.eu-central-1.amazonaws.com/blog-posts.csv";
-
-        // Mock mediator response
         _mediatorMock.Send(Arg.Any<ImportPostsFromCsvCommand>()).Returns(Unit.Value);
-
-        // Add Authorization Header
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "validAdminToken");
-
-        // Act - Send `csvUrl` as a query string, NOT in the body
         var response = await _httpClient.PostAsync($"/api/posts/import?csvUrl={Uri.EscapeDataString(csvUrl)}", null);
-
-        // Log the response to debug issues
+        
         var responseBody = await response.Content.ReadAsStringAsync();
         Console.WriteLine($"Response Body: {responseBody}");
 
