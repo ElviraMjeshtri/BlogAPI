@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tCmIZMFt0pY=",
+  "dgSpecHash": "mzDgYVUQ2L8=",
   "success": true,
-  "projectFilePath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj",
+  "projectFilePath": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.Repository/BlogApi.Repository.csproj",
   "expectedPackageFiles": [
     "/Users/ritech/.nuget/packages/fluentvalidation/11.5.1/fluentvalidation.11.5.1.nupkg.sha512",
     "/Users/ritech/.nuget/packages/fluentvalidation.aspnetcore/11.3.0/fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",

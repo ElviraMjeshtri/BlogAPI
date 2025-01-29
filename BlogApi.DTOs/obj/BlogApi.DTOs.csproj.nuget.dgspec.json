@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {}
+    "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {}
   },
   "projects": {
-    "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {
+    "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj",
+        "projectUniqueName": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj",
         "projectName": "BlogApi.DTOs",
-        "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj",
+        "projectPath": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.DTOs/BlogApi.DTOs.csproj",
         "packagesPath": "/Users/ritech/.nuget/packages/",
-        "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.DTOs/obj/",
+        "outputPath": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.DTOs/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ritech/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
-                "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj"
+              "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
+                "projectPath": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj"
               }
             }
           }
@@ -77,14 +77,14 @@
         }
       }
     },
-    "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
+    "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
+        "projectUniqueName": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
         "projectName": "BlogApi.Models",
-        "projectPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
+        "projectPath": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.Models/BlogApi.Models.csproj",
         "packagesPath": "/Users/ritech/.nuget/packages/",
-        "outputPath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Models/obj/",
+        "outputPath": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ritech/.nuget/NuGet/NuGet.Config"

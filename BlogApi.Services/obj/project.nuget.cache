@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LDm9Bix1G+A=",
+  "dgSpecHash": "t8/+D24JgLk=",
   "success": true,
-  "projectFilePath": "/Users/ritech/Elvira/BlogAPI/BlogApi.Services/BlogApi.Services.csproj",
+  "projectFilePath": "/Users/ritech/Elvira/projects/BlogAPI/BlogApi.Services/BlogApi.Services.csproj",
   "expectedPackageFiles": [
     "/Users/ritech/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/ritech/.nuget/packages/csvhelper/33.0.1/csvhelper.33.0.1.nupkg.sha512",

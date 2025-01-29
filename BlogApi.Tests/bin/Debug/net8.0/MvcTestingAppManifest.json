@@ -1,7 +1,7 @@
 {
-  "BlogApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/BlogAPI\/BlogApi",
-  "BlogApi.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/BlogAPI\/BlogApi.DTOs",
-  "BlogApi.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/BlogAPI\/BlogApi.Models",
-  "BlogApi.Repository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/BlogAPI\/BlogApi.Repository",
-  "BlogApi.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/BlogAPI\/BlogApi.Services"
+  "BlogApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/projects\/BlogAPI\/BlogApi",
+  "BlogApi.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/projects\/BlogAPI\/BlogApi.DTOs",
+  "BlogApi.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/projects\/BlogAPI\/BlogApi.Models",
+  "BlogApi.Repository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/projects\/BlogAPI\/BlogApi.Repository",
+  "BlogApi.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/ritech\/Elvira\/projects\/BlogAPI\/BlogApi.Services"
 }

@@ -1,62 +1,28 @@
 using System.Net;
 using System.Net.Http.Headers;
-using System.Security.Claims;
-using System.Text.Encodings.Web;
 using System.Text.Json;
 using BlogApi.DTOs;
-using BlogApi.Models;
 using BlogApi.Services.Commands.Posts;
 using BlogApi.Services.Queries.Posts;
 using FluentAssertions;
 using MediatR;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Options;
 using NSubstitute;
 
 
 namespace BlogApi.Tests;
 
-public class PostEndpointsTests : 
-    IClassFixture<WebApplicationFactory<IApiMarker>>,
-    IAsyncLifetime
+public class PostEndpointsTests : IClassFixture<PostApiFactory>
 {
-    
-    private readonly WebApplicationFactory<IApiMarker> _factory;
     private readonly HttpClient _httpClient;
     private readonly IMediator _mediatorMock;
-  public PostEndpointsTests(WebApplicationFactory<IApiMarker> factory)
+
+    public PostEndpointsTests(PostApiFactory factory)
     {
-        _mediatorMock = Substitute.For<IMediator>();
-
-        _factory = factory.WithWebHostBuilder(builder =>
-        {
-            builder.ConfigureServices(services =>
-            {
-                // Replace the real IMediator with the mock
-                services.AddSingleton(_mediatorMock);
-
-                // Add a test authentication handler
-                services.AddAuthentication("TestAuth")
-                    .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>("TestAuth", _ => { });
-            });
-
-            builder.ConfigureAppConfiguration(config =>
-            {
-                config.AddInMemoryCollection(new Dictionary<string, string>
-                {
-                    ["JwtSettings:SecretKey"] = "ThisIsASecretKeyForJwt1234567890",
-                    ["JwtSettings:Issuer"] = "BlogApi",
-                    ["JwtSettings:Audience"] = "BlogApiAudience"
-                });
-            });
-        });
-
-        _httpClient = _factory.CreateClient();
-        _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "test-token");
+        _mediatorMock = factory.Services.GetRequiredService<IMediator>();
+        _httpClient = factory.CreateClient();
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "test-token");
     }
-
+    
     [Fact]
     public async Task CreatePost_ReturnsCreated_WhenDataIsValid()
     {
@@ -207,7 +173,6 @@ public class PostEndpointsTests :
     {
         // Arrange
         var csvUrl = "https://fleetcor-cvp.s3.eu-central-1.amazonaws.com/blog-posts.csv";
-        var payload = new { csvUrl };
 
         // Mock mediator response
         _mediatorMock.Send(Arg.Any<ImportPostsFromCsvCommand>()).Returns(Unit.Value);
@@ -215,17 +180,16 @@ public class PostEndpointsTests :
         // Add Authorization Header
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "validAdminToken");
 
-        // Act
-        var response = await _httpClient.PostAsJsonAsync("/api/posts/import", payload);
+        // Act - Send `csvUrl` as a query string, NOT in the body
+        var response = await _httpClient.PostAsync($"/api/posts/import?csvUrl={Uri.EscapeDataString(csvUrl)}", null);
+
+        // Log the response to debug issues
+        var responseBody = await response.Content.ReadAsStringAsync();
+        Console.WriteLine($"Response Body: {responseBody}");
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var message = await response.Content.ReadAsStringAsync();
-        message.Should().Be("\"Import job completed successfully.\"");
+        responseBody.Should().Be("\"Import job completed successfully.\"");
     }
-
-    public Task InitializeAsync() => Task.CompletedTask;
-
-    public Task DisposeAsync() => Task.CompletedTask;
     
 }
