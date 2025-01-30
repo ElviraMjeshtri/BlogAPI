@@ -13,40 +13,55 @@ public class PostEndpoints : IEndpoints
 {
     private const string ContentType = "application/json";
     private const string Tag = "Posts";
-    private const string BaseRoute = "posts";
+    private const string CreatePostEndpointUrl = "api/posts";
+    private const string CreatePostEndpointName = "CreatePost";
+    private const string UpdatePostEndpointUrl = "/api/posts/{id:int}";
+    private const string UpdatePostEndpointName = "UpdatePost";
+    private const string DeletePostEndpointUrl = "/api/posts/{id:int}";
+    private const string DeletePostEndpointName = "DeletePost";
+    private const string GetPostsEndpointName = "GetPosts";
+    private const string GetPostsEndpointUrl = "/api/posts";
+    private const string GetPostEndpointUrl = "/api/posts/{id:int}";
+    private const string GetPostEndpointName = "GetPost";
+    private const string AdminOnly = "AdminOnly";
+    private const string ImportPostsEndpointName = "ImportPosts";
+    private const string ImportPostsEndpointUrl = "/api/posts/import";
 
     public static void DefineEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapPost("api/posts", HandleCreatePostAsync)
-            .RequireAuthorization("AdminOnly")
-            .WithName("CreatePost")
+        app.MapPost(CreatePostEndpointUrl, HandleCreatePostAsync)
+            .RequireAuthorization(AdminOnly)
+            .WithName(CreatePostEndpointName)
             .Accepts<CreatePostDto>(ContentType)
             .Produces<Post>(201)
             .Produces<IEnumerable<ValidationFailure>>(400)
             .WithTags(Tag);
 
-        app.MapPut("/api/posts/{id:int}", HandleUpdatePostAsync)
-            .RequireAuthorization("AdminOnly")
-            .WithName("UpdatePost")
+        app.MapPut(UpdatePostEndpointUrl, HandleUpdatePostAsync)
+            .RequireAuthorization(AdminOnly)
+            .WithName(UpdatePostEndpointName)
             .Accepts<UpdatePostDto>(ContentType)
             .Produces<Post>(200)
             .Produces<IEnumerable<ValidationFailure>>(400)
             .WithTags(Tag);
 
-        app.MapDelete("/api/posts/{id:int}", HandleDeletePostAsync)
-            .RequireAuthorization("AdminOnly")
+        app.MapDelete(DeletePostEndpointUrl, HandleDeletePostAsync)
+            .RequireAuthorization(AdminOnly)
+            .WithName(DeletePostEndpointName)
             .WithTags(Tag);
 
-        app.MapGet("/api/posts", HandleGetPostsAsync)
+        app.MapGet(GetPostsEndpointUrl, HandleGetPostsAsync)
             .RequireAuthorization()
+            .WithName(GetPostsEndpointName)
             .WithTags(Tag);
 
-        app.MapGet("/api/posts/{id:int}", HandleGetByIdPostAsync)
+        app.MapGet(GetPostEndpointUrl, HandleGetByIdPostAsync)
             .RequireAuthorization()
+            .WithName(GetPostEndpointName)
             .WithTags(Tag);
 
 
-        app.MapPost("/api/posts/import", async (IMediator mediator, string csvUrl) =>
+        app.MapPost(ImportPostsEndpointUrl, async (IMediator mediator, string csvUrl) =>
             {
                 if (string.IsNullOrWhiteSpace(csvUrl))
                 {
@@ -63,9 +78,9 @@ public class PostEndpoints : IEndpoints
                     return Results.BadRequest(new { message = ex.Message });
                 }
             })
-            .RequireAuthorization("AdminOnly")
-            .WithName("ImportPosts")
-            .WithTags("Posts");
+            .RequireAuthorization(AdminOnly)
+            .WithName(ImportPostsEndpointName)
+            .WithTags(Tag);
     }
 
     private static async Task<IResult> HandleCreatePostAsync(
@@ -115,22 +130,35 @@ public class PostEndpoints : IEndpoints
             return Results.BadRequest(new { message = e.Message });
         }
     }
-
-    private static async Task<IResult> HandleDeletePostAsync(
-        IMediator mediator,
-        int id)
+    
+    // private static async Task<IResult> HandleDeletePostAsync(
+    //     IMediator mediator,
+    //     int id)
+    // {
+    //     try
+    //     {
+    //         // await postService.DeletePostAsync(id);
+    //         await mediator.Send(new DeletePostCommand(id));
+    //         return Results.NoContent();
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         return Results.BadRequest(new { message = e.Message });
+    //     }
+    // }
+    //
+    private static async Task<IResult> HandleDeletePostAsync(IMediator mediator, int id)
     {
-        try
+        var result = await mediator.Send(new DeletePostCommand(id));
+
+        if (!result.IsSuccess)
         {
-            // await postService.DeletePostAsync(id);
-            await mediator.Send(new DeletePostCommand(id));
-            return Results.NoContent();
+            return Results.StatusCode((int)result.StatusCode); // Returns 404 if post not found
         }
-        catch (Exception e)
-        {
-            return Results.BadRequest(new { message = e.Message });
-        }
+
+        return Results.NoContent(); // 204 No Content on successful deletion
     }
+
 
     private static async Task<IResult> HandleGetPostsAsync(
         IMediator mediator,

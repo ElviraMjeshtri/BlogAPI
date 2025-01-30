@@ -1,3 +1,4 @@
+using System.Net;
 using BlogApi.Models;
 using BlogApi.Repository;
 using BlogApi.Services.Queries.Posts;
@@ -17,7 +18,7 @@ public class GetPostByIdQueryHandlerTests
     }
 
     [Fact]
-    public async Task Handle_ShouldReturnPostDto_WhenPostExists()
+    public async Task Handle_ShouldReturnSuccessResult_WhenPostExists()
     {
         // Arrange
         var postId = 1;
@@ -40,18 +41,21 @@ public class GetPostByIdQueryHandlerTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(post.Id, result.Id);
-        Assert.Equal(post.Title, result.Title);
-        Assert.Equal(post.Content, result.Content);
-        Assert.Equal(post.FriendlyUrl, result.FriendlyUrl);
-        Assert.Equal(post.DateCreated, result.DateCreated);
-        Assert.Equal(post.CreatedBy, result.CreatedBy);
+        Assert.True(result.IsSuccess); // ✅ Should be a successful result
+        Assert.Equal(HttpStatusCode.OK, result.StatusCode); // ✅ Should return HTTP 200
+        Assert.NotNull(result.Value);
+        Assert.Equal(post.Id, result.Value.Id);
+        Assert.Equal(post.Title, result.Value.Title);
+        Assert.Equal(post.Content, result.Value.Content);
+        Assert.Equal(post.FriendlyUrl, result.Value.FriendlyUrl);
+        Assert.Equal(post.DateCreated, result.Value.DateCreated);
+        Assert.Equal(post.CreatedBy, result.Value.CreatedBy);
 
         await _repository.Received(1).GetByIdAsync(postId);
     }
 
     [Fact]
-    public async Task Handle_ShouldThrowKeyNotFoundException_WhenPostDoesNotExist()
+    public async Task Handle_ShouldReturnFailureResult_WhenPostDoesNotExist()
     {
         // Arrange
         var postId = 1;
@@ -59,12 +63,15 @@ public class GetPostByIdQueryHandlerTests
 
         var query = new GetPostByIdQuery(postId);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<KeyNotFoundException>(() =>
-            _handler.Handle(query, CancellationToken.None)
-        );
+        // Act
+        var result = await _handler.Handle(query, CancellationToken.None);
 
-        Assert.Equal($"Post with ID {postId} not found.", exception.Message);
+        // Assert
+        Assert.NotNull(result);
+        Assert.False(result.IsSuccess); // ✅ Should be a failure result
+        Assert.Equal(HttpStatusCode.NotFound, result.StatusCode); // ✅ Should return 404
+        Assert.Equal($"Post with ID {postId} not found.", result.ErrorMessage);
+        Assert.Null(result.Value); // ✅ Value should be null
 
         await _repository.Received(1).GetByIdAsync(postId);
     }

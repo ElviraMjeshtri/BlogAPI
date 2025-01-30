@@ -7,28 +7,38 @@ namespace BlogApi.Endpoints;
 
 public class AuthEndpoints : IEndpoints
 {
+    private const string Tag = "Auth";
+    private const string Login = "Login";
+    private const string RegisterUser = "RegisterUser";
+    private const string LogoutUser = "LogoutUser";
+    private const string LoginEndpoint = "api/auth/login";
+    private const string LogoutEndpoint = "/api/auth/logout";
+    private const string RegisterEndpoint = "/api/auth/register";
+    
+    
     public static void DefineEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapPost("api/auth/login", HandleLoginPostAsync)
-            .WithName("Login")
-            .WithTags("Auth");
+       
+        app.MapPost(LoginEndpoint, HandleLoginPostAsync)
+            .WithName(Login)
+            .WithTags(Tag);
 
-        app.MapPost("/api/auth/register", async (IMediator mediator, RegisterUserDto registerDto) =>
+        app.MapPost(RegisterEndpoint, async (IMediator mediator, RegisterUserDto registerDto) =>
             {
                 var response = await mediator.Send(new RegisterUserCommand(registerDto));
                 return Results.Ok(response);
             })
-            .WithName("RegisterUser")
-            .WithTags("Auth");
+            .WithName(RegisterUser)
+            .WithTags(Tag);
         ;
 
-        app.MapPost("/api/auth/logout", async (IMediator mediator, string token) =>
+        app.MapPost(LogoutEndpoint, async (IMediator mediator, string token) =>
             {
                 await mediator.Send(new LogoutUserCommand(token));
                 return Results.Ok("Logged out successfully.");
             })
-            .WithName("LogoutUser")
-            .WithTags("Auth");
+            .WithName(LogoutUser)
+            .WithTags(Tag);
         ;
     }
 

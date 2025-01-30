@@ -2,6 +2,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using BlogApi.DTOs;
+using BlogApi.Services.Commands;
 using BlogApi.Services.Commands.Posts;
 using BlogApi.Services.Queries.Posts;
 using FluentAssertions;
@@ -113,15 +114,17 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
             CreatedBy = "Admin"
         };
 
-        _mediatorMock.Send(Arg.Any<GetPostByIdQuery>()).Returns(postDto);
+        _mediatorMock.Send(Arg.Any<GetPostByIdQuery>()).Returns(Result<PostDto>.Success(postDto));
 
         // Act
         var response = await _httpClient.GetAsync($"/api/posts/{postId}");
+        var responseContent = await response.Content.ReadAsStringAsync();
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var responsePost = await response.Content.ReadFromJsonAsync<PostDto>();
-        responsePost.Should().BeEquivalentTo(postDto);
+        var responsePost = await response.Content.ReadFromJsonAsync<Result<PostDto>>();
+        responsePost.Should().NotBeNull();
+        responsePost!.Value.Should().BeEquivalentTo(postDto);
     }
 
     [Fact]
@@ -160,7 +163,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
     public async Task DeletePost_ReturnsNoContent_WhenAuthorizedAsAdmin()
     {
         // Arrange
-        _mediatorMock.Send(Arg.Any<DeletePostCommand>()).Returns(Unit.Value);
+        _mediatorMock.Send(Arg.Any<DeletePostCommand>()).Returns(Result<Unit>.Success(Unit.Value));
 
         // Act
         var response = await _httpClient.DeleteAsync("/api/posts/1");

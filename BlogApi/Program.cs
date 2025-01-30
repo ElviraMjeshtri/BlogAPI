@@ -26,7 +26,6 @@ builder.Services.AddSingleton(jwtSettings);
 builder.Services.AddScoped<TokenServices>();
 
 // Configure authentication
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -41,8 +40,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey))
         };
     });
-//configure authorization policies
 
+//configure authorization policies
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole("admin")); // Matches "role": "admin"
@@ -60,10 +59,10 @@ builder.Services.AddMediatR(typeof(GetPostsQueryHandler).Assembly);
 builder.Services.AddMediatR(typeof(ImportPostsFromCsvCommandHandler).Assembly);
 
 
-builder.Services.AddValidatorsFromAssemblyContaining<CreatePostDtoValidator>();
-builder.Services.AddFluentValidationAutoValidation();
 
-// Register IPostRepository with PostRepository
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreatePostDtoValidator>();
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ITokenBlacklistRepository, DatabaseTokenBlacklistRepository>();
@@ -115,6 +114,7 @@ builder.Services.AddHangfire(config =>
 });
 
 builder.Services.AddHangfireServer();
+
 builder.Services.AddHttpClient();
 
 // Register custom endpoints
@@ -136,14 +136,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Register endpoints from the separate class
+// Register endpoints from the EndpointExtensions class
 app.UseEndpoints<Program>();
 
-// Add Hangfire Dashboard (optional)
 app.UseHangfireDashboard();
 
 app.Run();
-
 public partial class Program
 {
 }

@@ -1,9 +1,10 @@
+using System.Net;
 using BlogApi.Repository;
+using BlogApi.Services.Commands;
+using BlogApi.Services.Commands.Posts;
 using MediatR;
 
-namespace BlogApi.Services.Commands.Posts;
-
-public class DeletePostCommandHandler : IRequestHandler<DeletePostCommand>
+public class DeletePostCommandHandler : IRequestHandler<DeletePostCommand, Result<Unit>>
 {
     private readonly IPostRepository _repository;
 
@@ -12,15 +13,15 @@ public class DeletePostCommandHandler : IRequestHandler<DeletePostCommand>
         _repository = repository;
     }
 
-    public async Task<Unit> Handle(DeletePostCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Unit>> Handle(DeletePostCommand request, CancellationToken cancellationToken)
     {
         var post = await _repository.GetByIdAsync(request.id);
         if (post == null)
         {
-            throw new KeyNotFoundException($"Post with ID {request.id} not found.");
+            return Result<Unit>.Failure(HttpStatusCode.NotFound, $"Post with ID {request.id} not found.");
         }
 
         await _repository.DeleteAsync(request.id);
-        return Unit.Value; //  `Unit.Value` signify a void return type
+        return Result<Unit>.Success(Unit.Value);
     }
 }
