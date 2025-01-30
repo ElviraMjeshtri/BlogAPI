@@ -19,26 +19,26 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, AuthRes
     {
         var loginDto = request.LoginRequestDto;
         //check if user exists
-        var user  =  await _userRepository.GetByUsernameAsync(loginDto.Username);
+        var user = await _userRepository.GetByUsernameAsync(loginDto.Username);
         if (user == null)
         {
             throw new Exception("Invalid username or password");
         }
+
         //verify password
         if (!_authService.VerifyPassword(loginDto.Password, user.PasswordHash))
         {
             throw new Exception("Invalid username or password");
         }
-        
+
         // generate token
         var token = _authService.GenerateJwtToken(user);
-        
+
         //return AuthResponseDto
         return new AuthResponseDto
         {
             Token = token,
             Role = user.Role
-
         };
     }
 }

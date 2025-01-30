@@ -22,7 +22,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         _httpClient = factory.CreateClient();
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "test-token");
     }
-    
+
     [Fact]
     public async Task CreatePost_ReturnsCreated_WhenDataIsValid()
     {
@@ -53,6 +53,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         responsePost.Should().BeEquivalentTo(createdPost);
         response.Headers.Location.Should().Be($"api/posts/{createdPost.Id}");
     }
+
     [Fact]
     public async Task CreatePost_ReturnsBadRequest_WhenDataIsInvalid()
     {
@@ -73,7 +74,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         var validationErrors = await response.Content.ReadFromJsonAsync<JsonElement>();
         validationErrors.Should().NotBeNull();
     }
-    
+
     [Fact]
     public async Task GetPosts_ReturnsOk_WhenAuthorizedAsUser()
     {
@@ -95,7 +96,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         var responsePosts = await response.Content.ReadFromJsonAsync<List<PostDto>>();
         responsePosts.Should().BeEquivalentTo(posts);
     }
-    
+
     [Fact]
     public async Task GetPostById_ReturnsOk_WhenAuthorizedAsUser()
     {
@@ -122,7 +123,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         var responsePost = await response.Content.ReadFromJsonAsync<PostDto>();
         responsePost.Should().BeEquivalentTo(postDto);
     }
-    
+
     [Fact]
     public async Task UpdatePost_ReturnsOk_WhenAuthorizedAsAdmin()
     {
@@ -154,7 +155,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         var responsePost = await response.Content.ReadFromJsonAsync<PostDto>();
         responsePost.Should().BeEquivalentTo(updatedPost);
     }
-    
+
     [Fact]
     public async Task DeletePost_ReturnsNoContent_WhenAuthorizedAsAdmin()
     {
@@ -167,7 +168,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.NoContent);
     }
-    
+
     [Fact]
     public async Task ImportPosts_ReturnsOk_WhenAuthorizedAsAdmin()
     {
@@ -175,7 +176,7 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         var csvUrl = "https://fleetcor-cvp.s3.eu-central-1.amazonaws.com/blog-posts.csv";
         _mediatorMock.Send(Arg.Any<ImportPostsFromCsvCommand>()).Returns(Unit.Value);
         var response = await _httpClient.PostAsync($"/api/posts/import?csvUrl={Uri.EscapeDataString(csvUrl)}", null);
-        
+
         var responseBody = await response.Content.ReadAsStringAsync();
         Console.WriteLine($"Response Body: {responseBody}");
 
@@ -183,5 +184,4 @@ public class PostEndpointsTests : IClassFixture<PostApiFactory>
         response.StatusCode.Should().Be(HttpStatusCode.OK);
         responseBody.Should().Be("\"Import job completed successfully.\"");
     }
-    
 }

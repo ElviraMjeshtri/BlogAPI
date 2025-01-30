@@ -11,7 +11,6 @@ using FluentAssertions;
 using NSubstitute;
 using Xunit;
 
-
 public class UpdatePostCommandHandlerTests
 {
     private readonly IPostRepository _postRepository;

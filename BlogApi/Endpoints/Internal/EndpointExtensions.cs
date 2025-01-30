@@ -36,12 +36,12 @@ public static class EndpointExtensions
                 .Invoke(null, new object[] { app });
         }
     }
-    
+
     private static IEnumerable<TypeInfo> GetEndpointTypesFromAssemblyContaining(Type typeMarker)
     {
         return typeMarker.Assembly.DefinedTypes
-            .Where(x => !x.IsAbstract 
-                        && !x.IsInterface 
+            .Where(x => !x.IsAbstract
+                        && !x.IsInterface
                         && typeof(IEndpoints).IsAssignableFrom(x));
     }
 }

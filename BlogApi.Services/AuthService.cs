@@ -2,10 +2,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using BlogApi.Models;
-using BlogApi.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-
 
 namespace BlogApi.Services;
 
@@ -17,7 +15,7 @@ public class AuthService : IAuthService
     {
         _configuration = configuration;
     }
-    
+
     public bool VerifyPassword(string password, string passwordHash)
     {
         return BCrypt.Net.BCrypt.Verify(password, passwordHash);

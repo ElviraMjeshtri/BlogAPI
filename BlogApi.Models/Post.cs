@@ -8,5 +8,4 @@ public class Post
     public string Content { get; set; }
     public DateTime DateCreated { get; set; }
     public string CreatedBy { get; set; }
-
 }

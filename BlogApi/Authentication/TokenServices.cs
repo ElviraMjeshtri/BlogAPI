@@ -14,15 +14,14 @@ public class TokenServices
         _jwtSettings = jwtSettings;
     }
 
-    public string GenerateToken( string username, string password )
+    public string GenerateToken(string username, string password)
     {
-        var claims= new[]
+        var claims = new[]
         {
             new Claim(ClaimTypes.Name, username),
             new Claim(ClaimTypes.Email, username),
-
         };
-        
+
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 

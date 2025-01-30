@@ -12,22 +12,24 @@ public class AuthEndpoints : IEndpoints
         app.MapPost("api/auth/login", HandleLoginPostAsync)
             .WithName("Login")
             .WithTags("Auth");
-        
+
         app.MapPost("/api/auth/register", async (IMediator mediator, RegisterUserDto registerDto) =>
             {
                 var response = await mediator.Send(new RegisterUserCommand(registerDto));
                 return Results.Ok(response);
             })
             .WithName("RegisterUser")
-            .WithTags("Auth");;
-        
+            .WithTags("Auth");
+        ;
+
         app.MapPost("/api/auth/logout", async (IMediator mediator, string token) =>
             {
                 await mediator.Send(new LogoutUserCommand(token));
                 return Results.Ok("Logged out successfully.");
             })
             .WithName("LogoutUser")
-            .WithTags("Auth");;
+            .WithTags("Auth");
+        ;
     }
 
     private static async Task<IResult> HandleLoginPostAsync(IMediator mediator,
@@ -37,7 +39,6 @@ public class AuthEndpoints : IEndpoints
         {
             var result = await mediator.Send(new LoginUserCommand(request));
             return Results.Ok(result);
-
         }
         catch (Exception e)
         {

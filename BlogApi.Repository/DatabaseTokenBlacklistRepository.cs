@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogApi.Repository;
 
-public class DatabaseTokenBlacklistRepository: ITokenBlacklistRepository
+public class DatabaseTokenBlacklistRepository : ITokenBlacklistRepository
 {
     private readonly BlogDbContext _context;
 

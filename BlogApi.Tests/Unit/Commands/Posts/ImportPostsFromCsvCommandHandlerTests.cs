@@ -29,7 +29,7 @@ public class ImportPostsFromCsvCommandHandlerTests
         _httpClientFactory.CreateClient(Arg.Any<string>()).Returns(httpClient);
 
         // Initialize the handler
-        _handler = new ImportPostsFromCsvCommandHandler(_postRepository, 
+        _handler = new ImportPostsFromCsvCommandHandler(_postRepository,
             _httpClientFactory,
             _httpContextAccessor);
     }
@@ -75,7 +75,6 @@ public class ImportPostsFromCsvCommandHandlerTests
     }
 
 
-
     [Fact]
     public async Task Handle_ShouldThrowHttpRequestException_WhenHttpRequestFails()
     {
@@ -90,6 +89,7 @@ public class ImportPostsFromCsvCommandHandlerTests
         // Verify no posts were added to the repository
         await _postRepository.DidNotReceive().AddAsync(Arg.Any<Post>());
     }
+
     [Fact]
     public async Task Handle_ShouldNotAddPosts_WhenCsvIsEmpty()
     {

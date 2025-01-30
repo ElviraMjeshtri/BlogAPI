@@ -16,7 +16,7 @@ public class PostRepository : IPostRepository
 
     public async Task<Post> AddAsync(Post post)
     {
-        await _context.Posts.AddAsync(post); 
+        await _context.Posts.AddAsync(post);
         await _context.SaveChangesAsync();
         return post;
     }
@@ -31,7 +31,7 @@ public class PostRepository : IPostRepository
     public async Task DeleteAsync(int id)
     {
         var post = await _context.Posts.FindAsync(id);
-        if (post !=null)
+        if (post != null)
         {
             _context.Posts.Remove(post);
             await _context.SaveChangesAsync();
@@ -40,7 +40,7 @@ public class PostRepository : IPostRepository
 
     public async Task<Post> GetByIdAsync(int id)
     {
-       return await _context.Posts.FindAsync(id);
+        return await _context.Posts.FindAsync(id);
     }
 
     public async Task<IEnumerable<Post>> GetPaginatedAsync(int pageNumber, int pageSize)

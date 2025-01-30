@@ -5,5 +5,4 @@ namespace BlogApi.Services.Commands.Auth;
 
 public record RegisterUserCommand(RegisterUserDto RegisterUserDto) : IRequest<AuthResponseDto>
 {
-    
 }

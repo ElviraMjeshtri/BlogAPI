@@ -3,7 +3,6 @@ using CsvHelper.Configuration;
 
 namespace BlogApi.DTOs.Mappers;
 
-
 public class PostMap : ClassMap<Post>
 {
     public PostMap()

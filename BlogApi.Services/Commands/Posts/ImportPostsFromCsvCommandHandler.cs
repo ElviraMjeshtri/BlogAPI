@@ -9,17 +9,16 @@ using Microsoft.AspNetCore.Http;
 
 namespace BlogApi.Services.Commands.Posts;
 
-
 public class ImportPostsFromCsvCommandHandler : IRequestHandler<ImportPostsFromCsvCommand>
 {
     private readonly IPostRepository _postRepository;
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public ImportPostsFromCsvCommandHandler(IPostRepository postRepository, 
-        IHttpClientFactory httpClientFactory, 
-        IHttpContextAccessor httpContextAccessor )
-    
+    public ImportPostsFromCsvCommandHandler(IPostRepository postRepository,
+        IHttpClientFactory httpClientFactory,
+        IHttpContextAccessor httpContextAccessor)
+
     {
         _postRepository = postRepository;
         _httpClientFactory = httpClientFactory;
@@ -33,7 +32,8 @@ public class ImportPostsFromCsvCommandHandler : IRequestHandler<ImportPostsFromC
 
         if (!response.IsSuccessStatusCode)
         {
-            throw new HttpRequestException($"Failed to fetch CSV from {request.CsvUrl}, status code: {response.StatusCode}");
+            throw new HttpRequestException(
+                $"Failed to fetch CSV from {request.CsvUrl}, status code: {response.StatusCode}");
         }
 
         await using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
@@ -50,13 +50,11 @@ public class ImportPostsFromCsvCommandHandler : IRequestHandler<ImportPostsFromC
 
         foreach (var post in posts)
         {
-           post.CreatedBy = username;
-           post.DateCreated = DateTime.UtcNow;
+            post.CreatedBy = username;
+            post.DateCreated = DateTime.UtcNow;
             await _postRepository.AddAsync(post);
         }
 
         return Unit.Value;
     }
 }
-
-

@@ -66,8 +66,8 @@ public class PostEndpoints : IEndpoints
             .RequireAuthorization("AdminOnly")
             .WithName("ImportPosts")
             .WithTags("Posts");
-
     }
+
     private static async Task<IResult> HandleCreatePostAsync(
         //IPostService postService,
         IMediator mediator,
@@ -81,6 +81,7 @@ public class PostEndpoints : IEndpoints
             {
                 return Results.BadRequest(validationResult.Errors);
             }
+
             //var post = await postService.CreatePostAsync(createPostDto);
             var post = await mediator.Send(new CreatePostCommand(createPostDto));
             return Results.Created($"api/posts/{post.Id}", post);
@@ -90,10 +91,10 @@ public class PostEndpoints : IEndpoints
             return Results.BadRequest(new { message = e.Message });
         }
     }
-    
+
     private static async Task<IResult> HandleUpdatePostAsync(
         IMediator mediator,
-        int id, 
+        int id,
         UpdatePostDto updatePostDto,
         IValidator<UpdatePostDto> validator)
     {
@@ -104,6 +105,7 @@ public class PostEndpoints : IEndpoints
             {
                 return Results.BadRequest(validationResult.Errors);
             }
+
             //var post = await postService.UpdatePostAsync(id, updatePostDto);
             var post = await mediator.Send(new UpdatePostCommand(id, updatePostDto));
             return Results.Ok(post);
@@ -139,7 +141,7 @@ public class PostEndpoints : IEndpoints
         return Results.Ok(posts);
     }
 
-    private static async Task<IResult> HandleGetByIdPostAsync( IMediator mediator,
+    private static async Task<IResult> HandleGetByIdPostAsync(IMediator mediator,
         int id)
     {
         var post = await mediator.Send(new GetPostByIdQuery(id));
@@ -148,6 +150,6 @@ public class PostEndpoints : IEndpoints
 
     public static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddMediatR(typeof(Program)); 
+        services.AddMediatR(typeof(Program));
     }
 }

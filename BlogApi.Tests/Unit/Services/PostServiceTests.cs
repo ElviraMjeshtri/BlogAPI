@@ -9,7 +9,6 @@ namespace BlogApi.Tests;
 
 public class PostServiceTests
 {
-    
     private readonly IPostRepository _postRepository = Substitute.For<IPostRepository>();
     private readonly PostService _postService;
 

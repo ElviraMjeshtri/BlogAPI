@@ -11,12 +11,12 @@ public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, PostD
     private readonly IPostRepository _repository;
     private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public CreatePostCommandHandler(IPostRepository repository, IHttpContextAccessor httpContextAccessor )
+    public CreatePostCommandHandler(IPostRepository repository, IHttpContextAccessor httpContextAccessor)
     {
         _repository = repository;
         _httpContextAccessor = httpContextAccessor;
     }
-    
+
     public async Task<PostDto> Handle(CreatePostCommand request, CancellationToken cancellationToken)
     {
         var username = _httpContextAccessor.HttpContext?.User.Identity?.Name ?? "Unknown";
@@ -27,7 +27,7 @@ public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, PostD
         {
             throw new SystemException("The friendly url already exists.");
         }
-        
+
         var post = new Post
         {
             Title = request.CreatePostDto.Title,
